@@ -13,27 +13,24 @@ function BoitePrincipale() {
                 setPokemon(donnes.results);
             });
     }, []);
-{pokemon.map((unPokemon) => {
-    const id = unPokemon.url.split('/')[6];
-    return (
-        <li key={id} className="carte-pokemon">
-            {<img
-                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
-                alt={unPokemon.name
-            />}
-        </li>
-    )
-})
 
-}
     return (
         <div className="boite-principale">
             <h1>Bienvenue dans la Boîte Principale</h1>
             <p>Obtenez toutes les infos nécéssaires sur les Pokémons.</p>
-             <ul>
-                {pokemon.map((unPokemon) => (
-                <li key={unPokemon.name}> {unPokemon.name} </li>
-                ))} 
+            <ul>
+                {pokemon.map((unPokemon) => {
+                    const id = unPokemon.url.split('/')[6];
+                    return (
+                        <li key={id} className="carte-pokemon">
+                            <img
+                                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
+                                alt={unPokemon.name}
+                            />
+                            <p>{unPokemon.name}</p>
+                        </li>
+                    );
+                })}
             </ul>
         </div>
     );
