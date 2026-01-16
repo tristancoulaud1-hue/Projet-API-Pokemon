@@ -16,7 +16,7 @@
 }
 
 .pokemon-card:hover {
-    transform: translateY(-5px); /* Petit effet au survol */
+    transform: translateY(-5px);
     border-color: #ff0000;
 }
 
@@ -74,21 +74,19 @@
     cursor: pointer;
 }
 
-/* Le fond noir semi-transparent qui couvre tout l'écran */
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Fond sombre */
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Pour être au-dessus de tout */
+    z-index: 1000;
 }
 
-/* La boîte blanche au centre */
 .modal-content {
     background: white;
     padding: 30px;
@@ -97,7 +95,7 @@
     width: 90%;
     max-width: 500px;
     text-align: center;
-    animation: fadeIn 0.3s ease-out; /* Petit effet d'apparition */
+    animation: fadeIn 0.3s ease-out;
 }
 
 @keyframes fadeIn {
@@ -105,7 +103,6 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Le bouton fermer */
 .close-btn {
     position: absolute;
     top: 15px;
@@ -120,7 +117,6 @@
     font-weight: bold;
 }
 
-/* Style des badges de type */
 .type-badge {
     display: inline-block;
     padding: 5px 15px;
@@ -132,14 +128,15 @@
     font-size: 0.9rem;
 }
 
-/* Couleurs par type (exemples) */
 .fire { background-color: #F08030; }
 .water { background-color: #6890F0; }
 .grass { background-color: #78C850; }
 .poison { background-color: #A040A0; }
-/* Ajoute les autres couleurs si tu veux ! */
 
-/* TRÈS IMPORTANT : Ajoute ceci pour que l'on sache que la carte est cliquable */
 .pokemon-card {
     cursor: pointer;
+}
+
+li {
+  list-style-type: none;
 }
