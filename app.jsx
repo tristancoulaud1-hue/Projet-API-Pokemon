@@ -1,27 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import './app.css';
 import ReactDOM from 'react-dom/client';
-import FichePokemon from './fichepokemon.jsx';
+import FichePokemon from '/FichePokemon.jsx';
+import Grid from './Grid.jsx';
+import { fetchPokemonList, fetchPokemonDetails } from './api.js';
 
 function BoitePrincipale() {
     const [pokemon, setPokemon] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [recherche, setRecherche] = useState("");
     const [tri, setTri] = useState("id");
     const [selectedPokemon, setSelectedPokemon] = useState(null);
 
     useEffect(() => {
-        const url = "https://pokeapi.co/api/v2/pokemon?limit=1350";
-        fetch(url)
-            .then((response) => response.json())
-            .then((donnes) => setPokemon(donnes.results))
-            .catch((error) => console.error(error));
+        fetchPokemonList()
+            .then((data) => {setPokemon(data.results); setLoading(false);})
+            .catch((error) => {console.error(error); setLoading(false);
+            });
     }, []);
 
     const voirDetails = (url) => {
-        fetch(url)
-            .then((res) => res.json())
-            .then((data) => setSelectedPokemon(data));
+        fetchPokemonDetails(url)
+            .then((data) => {setSelectedPokemon(data);})
+            .catch((error) => console.error("Erreur détails:", error));
     };
+
     const pokemonAffiche = pokemon
         .filter((p) => p.name.toLowerCase().includes(recherche.toLowerCase()))
         .sort((a, b) => {
@@ -30,6 +33,8 @@ function BoitePrincipale() {
             const idB = parseInt(b.url.split('/')[6]);
             return idA - idB;
         });
+
+    if (loading) {return <div>Chargement des Pokemon</div>;}
 
     return (
         <div className="boite-principale">    
@@ -50,25 +55,9 @@ function BoitePrincipale() {
                         </select>
                     </div>
 
-                    <ul className="pokemon-grid">
-                        {pokemonAffiche.map((unPokemon) => {
-                            const id = unPokemon.url.split('/')[6];
-                            return (
-                                <li key={id} className="pokemon-card" onClick={() => voirDetails(unPokemon.url)}>
-                                    <div className="card-id">#{id}</div>
-                                    <img
-                                        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
-                                        alt={unPokemon.name}
-                                    />
-                                    <p className="pokemon-name">{unPokemon.name}</p>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                <FichePokemon 
-                    data={selectedPokemon} 
-                    onFermer={() => setSelectedPokemon(null)} 
-                />
+                    
+                <Grid pokemonAffiche={pokemonAffiche} voirDetails={voirDetails} />
+                <FichePokemon data={selectedPokemon} onFermer={() => setSelectedPokemon(null)} />
         </div>
     );
 }

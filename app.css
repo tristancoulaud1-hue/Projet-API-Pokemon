@@ -140,3 +140,9 @@
 li {
   list-style-type: none;
 }
+
+h1{
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
