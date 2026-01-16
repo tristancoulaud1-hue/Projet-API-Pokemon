@@ -1,41 +1,73 @@
 I) Description du projet
 
-Ce projet est une application web interactive de type Pokédex développée avec React. Elle permet aux utilisateurs de parcourir les 151 Pokémon de la première génération. L'interface est fluide et réactive, offrant des outils de recherche et d'organisation pour retrouver facilement ses Pokémon préférés.
+Ce projet est une application web interactive de type Pokédex développée avec React. Elle permet aux utilisateurs de parcourir les 1350 derniers Pokemon. L'interface est fluide et réactive, offrant des outils de recherche et d'organisation pour retrouver facilement ses Pokémon préférés.
 
-L'application démontre l'utilisation des concepts fondamentaux de React :
-
-La gestion d'état (useState).
-
-La synchronisation avec une API externe (useEffect).
-
-Le rendu dynamique de listes.
+Ce projet a été réalisé dans un objectif pédagogique afin de pratiquer :
+    - React (hooks, composants, props, état)
+    - Les appels API asynchrones
+    - La manipulation de données
+    - La structuration d’une application front-end
 
 II) API Utilisée
 
-Le projet consomme les données de la PokeAPI, une API REST complète pour tout ce qui concerne l'univers Pokémon.
+L’application utilise l’API publique PokéAPI :
+URL principale :
+https://pokeapi.co/api/v2/pokemon
 
-Endpoint principal : https://pokeapi.co/api/v2/pokemon?limit=151
+Données récupérées :
+    - Liste complète des Pokémon (nom, URL)
+    - Détails d’un Pokémon :
+        - ID
+        - Nom
+        - Image officielle
+        - Taille
+        - Poids
+        - Types (feu, eau, plante, etc.)
 
-Images : Les sprites officiels sont récupérés dynamiquement via le dépôt GitHub de PokeAPI pour garantir une haute qualité d'affichage.
+Les sprites et artworks sont fournis par les ressources officielles liées à la PokéAPI.
 
 III) Fonctionnalités implémentées
 
-1. Affichage dynamique
-Récupération automatique des données au chargement de la page.
+Recherche :
+    - Recherche en temps réel par nom de Pokémon
+    - Filtrage dynamique sans rechargement de page
 
-Génération d'une grille de cartes affichant le N°, l'image et le nom du Pokémon.
+Tri :
+    - Tri des pokemon :
+        - Par numéro de Pokédex
+        - Par ordre alphabétique
 
-2. Système de Recherche
-Barre de recherche textuelle en temps réel.
+Affichage en grille :
+    - Grille responsive de cartes Pokémon
+    - Chaque carte affiche :
+        - Numéro
+        - Sprite
+        - Nom
 
-Le filtrage est insensible à la casse (majuscules/minuscules) pour une meilleure expérience utilisateur.
+Fiche détaillée (modal) :
+    - Ouverture d’une fenêtre modale au clic sur un Pokémon
+    - Affichage des informations détaillées :
+        - Nom
+        - Numéro
+        - Image officielle
+        - Taille  
+        - Poids
+        - Types (avec badges colorés)
+    - Fermeture via bouton ou clic à l’extérieur
 
-3. Tri des données
-L'utilisateur peut organiser la liste selon deux critères grâce à un menu déroulant :
+Architecture du projet :
+    - Composants séparé :
+        - Grid.jsx
+        - Card.jsx
+        - Fichepokemon.jsx
+    - Gestion des appels API dans un fichier dédié (Api.js)
+    - Utilisation des hooks React :
+        - useState
+        - useEffect
 
-Par numéro (ID) : L'ordre naturel du Pokédex national.
-
-Par ordre alphabétique : Pour retrouver un Pokémon par son nom.
-
-4. Interface Responsive
-Utilisation d'un système de grille (CSS Grid) pour s'adapter aux différentes tailles d'écrans (ordinateurs, tablettes, mobiles).
+Technologies utilisées :
+    - React
+    - JavaScript
+    - HTML
+    - CSS
+    - PokéAPI

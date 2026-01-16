@@ -3,7 +3,7 @@ import './app.css';
 import ReactDOM from 'react-dom/client';
 import FichePokemon from '/FichePokemon.jsx';
 import Grid from './Grid.jsx';
-import { fetchPokemonList, fetchPokemonDetails } from './api.js';
+import { fetchPokemonList, fetchPokemonDetails } from '/Api.js';
 
 function BoitePrincipale() {
     const [pokemon, setPokemon] = useState([]);
