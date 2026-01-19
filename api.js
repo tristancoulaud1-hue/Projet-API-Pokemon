@@ -20,3 +20,9 @@ export const fetchPokemonDetails = (pokemonUrl) => {
         .then((res) => {if (!res.ok) throw new Error("Erreur détails"); return res.json();})
         .catch((error) => {console.error(error);throw error;})
 };
+
+// Thème toggle
+export const toggleTheme = () => {
+    const body = document.body;
+    body.classList.toggle("dark-mode");
+};

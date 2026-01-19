@@ -2,7 +2,7 @@ import React from 'react';
 import Card from './Card';
   
 
-function grid({ pokemonAffiche, voirDetails }) {
+function Grid({ pokemonAffiche, voirDetails }) {
     return (
         <ul className="pokemon-grid">
             {pokemonAffiche.map((unPokemon) => {
@@ -18,4 +18,4 @@ function grid({ pokemonAffiche, voirDetails }) {
     );
 }
 
-export default grid;
+export default Grid;

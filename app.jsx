@@ -3,7 +3,8 @@ import './app.css';
 import ReactDOM from 'react-dom/client';
 import FichePokemon from '/FichePokemon.jsx';
 import Grid from './Grid.jsx';
-import { fetchPokemonList, fetchPokemonDetails } from '/Api.js';
+import { fetchPokemonList, fetchPokemonDetails, toggleTheme } from '/Api.js';
+
 
 function BoitePrincipale() {
     const [pokemon, setPokemon] = useState([]);
@@ -28,11 +29,13 @@ function BoitePrincipale() {
     const pokemonAffiche = pokemon
         .filter((p) => p.name.toLowerCase().includes(recherche.toLowerCase()))
         .sort((a, b) => {
-            if (tri === "nom") return a.name.localeCompare(b.name);
+            if (tri === "nom") return a.name.localeCompare(b.ame);
             const idA = parseInt(a.url.split('/')[6]);
             const idB = parseInt(b.url.split('/')[6]);
             return idA - idB;
         });
+    
+    
 
     if (loading) {return <div>Chargement des Pokemon</div>;}
 
@@ -48,11 +51,11 @@ function BoitePrincipale() {
                             value={recherche}
                             onChange={(e) => setRecherche(e.target.value)}
                         />
-
                         <select className="sort-select" value={tri} onChange={(e) => setTri(e.target.value)}>
                             <option value="id">Trier par N°</option>
                             <option value="nom">Trier par Nom</option>
                         </select>
+                        <button id="theme-toggle" onClick={toggleTheme}>Modifier le thème</button>
                     </div>
 
                     
