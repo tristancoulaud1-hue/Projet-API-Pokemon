@@ -85,24 +85,21 @@ Pour faire fonctionner ce projet localement sur votre machine, suivez ces étape
 ### 1. Cloner le dépôt
 Ouvrez un terminal et récupérez le projet depuis GitHub :
 
-''' text
-Bash
+```bash
 git clone https://github.com/tristancoulaud1-hue/Projet-API-Pokemon.git
 cd Projet-API-Pokemon
-'''
+```
 ### 2. Installer les dépendances
 Comme le dossier node_modules est exclu du dépôt (via .gitignore), vous devez télécharger les bibliothèques nécessaires listées dans le package.json :
 
-''' text
-Bash
+```bash
 npm install
-'''
+```
 ### 3. Lancer le projet
 Une fois l'installation terminée, démarrez le serveur de développement local :
 
-''' text
-Bash
+```bash
 npm run dev
-'''
+```
 ### 4. Accéder à l'application
 Le terminal affichera une URL (généralement http://localhost:5173/). Copiez-la et collez-la dans votre navigateur pour explorer le Pokédex.
