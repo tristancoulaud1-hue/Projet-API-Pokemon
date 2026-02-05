@@ -1,4 +1,4 @@
-I) *Description du projet*
+# I) *Description du projet*
 
 Ce projet est une application web interactive de type Pokédex développée avec React. Elle permet aux utilisateurs de parcourir les 1350 derniers Pokemon. L'interface est fluide et réactive, offrant des outils de recherche et d'organisation pour retrouver facilement ses Pokémon préférés.
 
@@ -10,7 +10,7 @@ Ce projet a été réalisé dans un objectif pédagogique afin de pratiquer :
     - La structuration d’une application front-end
 
 
-II) *API Utilisée*
+# II) *API Utilisée*
 
 L’application utilise l’API publique PokéAPI :
 
@@ -30,7 +30,7 @@ Données récupérées :
 
 Les sprites et artworks sont fournis par les ressources officielles liées à la PokéAPI.
 
-III) *Fonctionnalités implémentées*
+# III) *Fonctionnalités implémentées*
 
 Recherche :
 
@@ -66,9 +66,6 @@ Architecture du projet :
             - Card.jsx
             - Fichepokemon.jsx
         - Gestion des appels API dans un fichier dédié (Api.js)
-        - Utilisation des hooks React :
-            - useState
-            - useEffect
 
 Technologies utilisées :
 
@@ -77,3 +74,6 @@ Technologies utilisées :
     - HTML
     - CSS
     - PokéAPI
+    - Utilisation des hooks React :
+            - useState
+            - useEffect
