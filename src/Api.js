@@ -2,7 +2,7 @@ const API_URL = "https://pokeapi.co/api/v2/pokemon?limit=1350";
 
 const handTheResponse = async (response) => {
     if (!response.ok) {
-        throw new Error("Erreur lors de la récupération des données");
+        throw new Error(error.message || "Erreur lors de la récupération des données");
     }
     return response.json();
 };

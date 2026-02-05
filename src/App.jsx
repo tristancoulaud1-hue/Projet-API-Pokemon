@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
-import FichePokemon from './component/FichePokemon.jsx';
-import Grid from './component/Grid.jsx';
+import './app.css';
+import FichePokemon from './components/FichePokemon.jsx';
+import Grid from './components/Grid.jsx';
 import { fetchPokemonList, fetchPokemonDetails, toggleTheme } from './Api.js';
 
 
-function App() {
+function BoitePrincipale() {
     const [pokemon, setPokemon] = useState([]);
     const [loading, setLoading] = useState(true);
     const [recherche, setRecherche] = useState("");
@@ -34,6 +34,8 @@ function App() {
             return idA - idB;
         });
     
+    
+
     if (loading) {return <div>Chargement des Pokemon</div>;}
 
     return (
@@ -57,14 +59,9 @@ function App() {
 
                     
                 <Grid pokemonAffiche={pokemonAffiche} voirDetails={voirDetails} />
-                {selectedPokemon && (
-                    <FichePokemon
-                        data={selectedPokemon} 
-                        onFermer={() => setSelectedPokemon(null)} 
-                    />
-                )}
+                <FichePokemon data={selectedPokemon} onFermer={() => setSelectedPokemon(null)} />
         </div>
     );
 }
 
-export default App;
+export default BoitePrincipale;
